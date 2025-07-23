@@ -19,24 +19,33 @@ git commit -m "Initial commit: SocialScaleBooster v1.0 with core features"
 
 ### Step 2: Connect to GitHub Repository
 
-**Option A: If repo exists and is empty (recommended)**
+**Current Situation: Remote has existing files**
+Since your remote repository already has some files, you need to merge them first:
+
+```bash
+# Pull and merge remote changes (this handles conflicts automatically)
+git pull origin main --allow-unrelated-histories
+
+# If there are merge conflicts, resolve them manually, then:
+# git add .
+# git commit -m "Merge remote changes"
+
+# Push your complete codebase
+git push origin main
+```
+
+**Alternative: Force push (only if you want to replace everything on GitHub)**
+```bash
+# WARNING: This will replace ALL content on GitHub with your local files
+git push origin main --force
+```
+
+**If repo was empty initially (backup option)**
 ```bash
 # Add your GitHub repository as remote origin
 git remote add origin https://github.com/boweazy/SocialScaleBooster.git
 
 # Push your code to GitHub
-git branch -M main
-git push -u origin main
-```
-
-**Option B: If you need to rename from .tese1**
-```bash
-# First, rename your GitHub repository from 'SocialScaleBooster.tese1' to 'SocialScaleBooster'
-# Go to: https://github.com/boweazy/SocialScaleBooster.tese1/settings
-# Scroll down to "Repository name" and change it to: SocialScaleBooster
-
-# Then connect the renamed repo
-git remote add origin https://github.com/boweazy/SocialScaleBooster.git
 git branch -M main
 git push -u origin main
 ```
